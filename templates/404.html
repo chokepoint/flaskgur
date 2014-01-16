@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+{% block title %}
+404
+{% endblock %}
+{% block content %}
+	<h1>You're not supposed to be here</h1>
+    <div id="image"><img class="new" src="{{ url_for('static', filename='404.jpg') }}"></div>
+{% endblock %}
