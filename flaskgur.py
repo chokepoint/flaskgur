@@ -6,7 +6,7 @@ import os
 import time
 
 DEBUG              = True
-BASE_DIR           = '/home/stderr/development/flaskgur/'
+BASE_DIR           = '/var/www/changeme/flaskgur'
 UPLOAD_DIR         = BASE_DIR + 'pics'
 DATABASE           = BASE_DIR + 'flaskgur.db'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -15,8 +15,8 @@ app = Flask(__name__)
 app.config.from_object(__name__)
 
 # Make sure extension is in the ALLOWD_EXTENSIONS set
-def check_extension(filename):
-	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+def check_extension(extension):
+	return extension in ALLOWED_EXTENSIONS
 
 def connect_db():
 	return sqlite3.connect(app.config['DATABASE'])
@@ -52,9 +52,10 @@ def page_not_found(e):
 def upload_pic():
 	if request.method == 'POST':
 		file = request.files['file']
-		if file and check_extension(file.filename):
+		extension = file.filename.rsplit('.', 1)[1].lower()
+		if file and check_extension(extension):
 			# Salt and hash the file contents
-			filename = md5(file.read() + str(round(time.time() * 1000))).hexdigest() + '.' + file.filename.rsplit('.', 1)[1]
+			filename = md5(file.read() + str(round(time.time() * 1000))).hexdigest() + '.' + extension
 			file.seek(0) # Move cursor back to beginning so we can write to disk
 			file.save(os.path.join(app.config['UPLOAD_DIR'], filename))
 			add_pic(filename)

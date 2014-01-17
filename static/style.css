@@ -1,12 +1,13 @@
 #header {
 	width: 75%;
-	height: 5%; /*20px;*/
+	height: 1.5em;
 	border: 3px solid #ccc;
 	margin: auto;
 	border-radius: 6px;
 	background-color: #393939;
 	color: white;
-	padding-left: 5px;
+	padding-top: 2px;
+	padding-left: 8px;
 }
 
 #upload {
@@ -103,14 +104,17 @@ a.nav:hover {
 	height: 200px;
 	overflow: hidden;
 	display: inline;
-	padding: 2px;
+	margin: 4px 4px 4px 4px;
 }
 
 img.thumb {
 	border: 1px solid #ccc;
 	border-radius: 6px;
-	/*height:auto;
-	width:200px;*/
+	padding: 4px;
+}
+
+img.thumb:hover {
+	border: 1px solid yellow;
 }
 
 img.new {
