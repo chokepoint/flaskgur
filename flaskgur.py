@@ -6,7 +6,7 @@ import os
 import time
 
 DEBUG              = True
-BASE_DIR           = '/var/www/changeme/flaskgur'
+BASE_DIR           = '/home/stderr/development/flaskgur/'
 UPLOAD_DIR         = BASE_DIR + 'pics'
 DATABASE           = BASE_DIR + 'flaskgur.db'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])

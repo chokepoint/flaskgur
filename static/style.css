@@ -1,6 +1,6 @@
 #header {
 	width: 75%;
-	height: 20px;
+	height: 5%; /*20px;*/
 	border: 3px solid #ccc;
 	margin: auto;
 	border-radius: 6px;
@@ -27,7 +27,7 @@
 	background-color: #393939;
 	color: white;
 	margin: 10px 0px 10px 12.5%;
-	padding: 10px 10px 10px 10px;
+	/*padding: 10px 10px 10px 10px;*/
 	float: left;
 	display: inline;
 }
@@ -98,12 +98,19 @@ a.nav:hover {
 	border-radius:6px;
 }
 
+.thumb {
+	width: 200px;
+	height: 200px;
+	overflow: hidden;
+	display: inline;
+	padding: 2px;
+}
+
 img.thumb {
-	max-width: 20%;
-	max-height: 20%;
-	height: auto;
 	border: 1px solid #ccc;
 	border-radius: 6px;
+	/*height:auto;
+	width:200px;*/
 }
 
 img.new {
@@ -117,4 +124,9 @@ img.new {
 
 h1 {
 	text-align:center;
+}
+
+ul
+{
+    list-style-type: none;
 }
