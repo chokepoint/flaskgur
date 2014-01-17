@@ -12,7 +12,7 @@ Open Source Image Sharer
 	{% else %}
 		<ul>
 		{% for pic in pics %}
-			<li class="thumb"><a href="{{ url_for('show_pic', filename=pic) }}"><img class="thumb" src="{{ pic_path(pic) }}"></a></li>
+			<li class="thumb"><a href="{{ url_for('show_pic', filename=pic) }}"><img class="thumb" src="{{ pic_path('thumb_'+pic) }}"></a></li>
 		{% endfor %}
 		</ul>
 	{% endif %}		    

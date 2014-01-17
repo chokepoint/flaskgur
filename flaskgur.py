@@ -1,6 +1,7 @@
 from flask import Flask, request, g, redirect, url_for, abort, render_template, send_from_directory
 from werkzeug import secure_filename
 from hashlib import md5
+import Image
 import sqlite3
 import os
 import time
@@ -31,6 +32,13 @@ def get_last_pics():
 def add_pic(filename):
 	g.db.execute('insert into pics (filename) values (?)', [filename])
 	g.db.commit()
+
+# Generate thumbnail image
+def gen_thumbnail(filename):
+	height = width = 200
+	original = Image.open(os.path.join(app.config['UPLOAD_DIR'], filename))
+	thumbnail = original.resize((width, height), Image.ANTIALIAS)
+	thumbnail.save(os.path.join(app.config['UPLOAD_DIR'], 'thumb_'+filename))
 	
 # Taken from flask example app
 @app.before_request
@@ -62,6 +70,7 @@ def upload_pic():
 			file.seek(0) # Move cursor back to beginning so we can write to disk
 			file.save(os.path.join(app.config['UPLOAD_DIR'], filename))
 			add_pic(filename)
+			gen_thumbnail(filename)
 			return redirect(url_for('show_pic', filename=filename))
 		else: # Bad file extension
 			abort(404)
