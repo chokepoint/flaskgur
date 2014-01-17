@@ -124,6 +124,7 @@ img.new {
 	border-radius: 6px;
 	display: inline-block;
     vertical-align: middle;
+    margin-bottom: 8px;
 }
 
 h1 {

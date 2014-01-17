@@ -52,7 +52,10 @@ def page_not_found(e):
 def upload_pic():
 	if request.method == 'POST':
 		file = request.files['file']
-		extension = file.filename.rsplit('.', 1)[1].lower()
+		try:
+			extension = file.filename.rsplit('.', 1)[1].lower()
+		except IndexError, e:
+			abort(404)
 		if file and check_extension(extension):
 			# Salt and hash the file contents
 			filename = md5(file.read() + str(round(time.time() * 1000))).hexdigest() + '.' + extension
