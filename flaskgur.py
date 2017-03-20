@@ -8,8 +8,8 @@ import time
 
 DEBUG              = True
 BASE_DIR           = '/var/www/changeme/flaskgur'
-UPLOAD_DIR         = BASE_DIR + 'pics'
-DATABASE           = BASE_DIR + 'flaskgur.db'
+UPLOAD_DIR         = os.path.join(BASE_DIR, 'pics')
+DATABASE           = os.path.join(BASE_DIR, 'flaskgur.db')
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
