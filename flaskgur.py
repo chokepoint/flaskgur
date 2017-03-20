@@ -1,7 +1,7 @@
 from flask import Flask, request, g, redirect, url_for, abort, render_template, send_from_directory
 from werkzeug import secure_filename
 from hashlib import md5
-import Image
+from PIL import Image
 import sqlite3
 import os
 import time
