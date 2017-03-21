@@ -1,15 +1,15 @@
 from flask import Flask, request, g, redirect, url_for, abort, render_template, send_from_directory
 from werkzeug import secure_filename
 from hashlib import md5
-import Image
+from PIL import Image
 import sqlite3
 import os
 import time
 
 DEBUG              = True
 BASE_DIR           = '/var/www/changeme/flaskgur'
-UPLOAD_DIR         = BASE_DIR + 'pics'
-DATABASE           = BASE_DIR + 'flaskgur.db'
+UPLOAD_DIR         = os.path.join(BASE_DIR, 'pics')
+DATABASE           = os.path.join(BASE_DIR, 'flaskgur.db')
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
