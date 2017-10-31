@@ -23,7 +23,7 @@ def connect_db():
     query = open(app.config['SCHEMA'], 'r').read()
     conn = sqlite3.connect(app.config['DATABASE'])
     cursor = conn.cursor()
-    cursor.execute(query)
+    cursor.executescript(query)
     conn.commit()
     cursor.close()
     return sqlite3.connect(app.config['DATABASE'])
