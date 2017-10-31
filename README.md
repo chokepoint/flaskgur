@@ -9,3 +9,8 @@ Screenshot
 ![alt text](http://i.imgur.com/rmqTSx1.png "Tile view")
 
 www.chokepoint.net
+
+## Installation
+
+*    mkvirtualenv flaskgur
+*    pip install . 

@@ -1,0 +1,6 @@
+-- drop table if exists pics;
+CREATE TABLE IF NOT EXISTS pics ( 
+  id SERIAL,
+  filename VARCHAR(37) NOT NULL UNIQUE,
+  created_on DATETIME NOT NULL DEFAULT (DATETIME(CURRENT_TIMESTAMP, 'LOCALTIME'))
+);
