@@ -31,7 +31,7 @@ setup(
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
     install_requires=[
-        'flask==0.12.2',
+        'flask==1.0',
         'pillow==4.3.0',
     ],
 )
