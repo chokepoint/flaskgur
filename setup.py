@@ -32,6 +32,6 @@ setup(
     ],
     install_requires=[
         'flask==1.0',
-        'pillow==9.0.0',
+        'pillow==9.3.0',
     ],
 )
